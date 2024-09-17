@@ -43,6 +43,17 @@ const BaseInput = styled.input`
   font-size: inherit;
   padding: 0 1.6rem;
   color: ${props => props.theme.colors.gray100};
+
+  /* Para tirar o outline quando clica no input */
+  &:focus{
+    box-shadow: none;
+    border-color: ${props => props.theme.colors.green500};
+  }
+
+  /* Estilizar o placeholder */
+  &::placeholder {
+    color: ${props => props.theme.colors.gray500};
+  }
 `;
 
 export const TaskInput = styled(BaseInput)`
@@ -52,10 +63,15 @@ export const TaskInput = styled(BaseInput)`
   flex-basis define se o elemento vai aumentar ou reduzir.
   */
   flex: 1;
+
+  &::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
 `;
 
 export const MinutesAmountInput = styled(BaseInput)`
-  width: 6.4rem;
+  width: 4.8rem;
+  padding: 0 0 0 0.8rem;
 `;
 
 export const CountDownContainer = styled.div`
