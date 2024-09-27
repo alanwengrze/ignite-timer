@@ -54,6 +54,11 @@ const BaseInput = styled.input`
   &::placeholder {
     color: ${props => props.theme.colors.gray500};
   }
+
+  &:disabled{
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 `;
 
 export const TaskInput = styled(BaseInput)`
@@ -73,6 +78,7 @@ export const MinutesAmountInput = styled(BaseInput)`
   width: 4.8rem;
   padding: 0 0 0 0.8rem;
 `;
+
 
 export const CountDownContainer = styled.div`
   font-family: 'Roboto Mono', monospace;
@@ -98,7 +104,7 @@ export const Separator = styled.div`
   justify-content: center;
 `;
 
-export const StartCountDownButton = styled.button`
+export const BaseCountDownButton = styled.button`
   width: 100%;
   border: 0;
   padding: 1.6rem;
@@ -113,8 +119,13 @@ export const StartCountDownButton = styled.button`
 
   cursor: pointer;
 
-  background: ${props => props.theme.colors.green500};
   color: ${props => props.theme.colors.gray100};
+
+`;
+
+export const StartCountDownButton = styled(BaseCountDownButton)`
+
+  background: ${props => props.theme.colors.green500};
 
   /* Aplica o hover apenas se o botão não estiver desabilitado */
   &:not(:disabled):hover{
@@ -125,4 +136,14 @@ export const StartCountDownButton = styled.button`
     opacity: 0.7;
     cursor: not-allowed;
   }
+`;
+
+export const StopCountDownButton = styled(BaseCountDownButton)`
+
+  background: ${props => props.theme.colors.red500};
+
+  &:hover{
+    background: ${props => props.theme.colors.red700};
+  }
+
 `;
